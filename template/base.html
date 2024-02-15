@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Styles to improve the UI of the form */
+      form {
+        display: grid;
+        gap: 10px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      input[type="text"],
+      input[type="number"] {
+        padding: 5px;
+        font-size: 16px;
+        text-align: center;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background: #fff;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        color: #cc1d1d;
+        text-align: center;
+        appearance: none; /* Removes default OS styling */
+        -webkit-appearance: none; /* Chrome, Safari, Opera */
+        -moz-appearance: none; /* Firefox */
+        -ms-appearance: none; /* Internet Explorer */
+      }
+      /* Styling for the options */
+      option {
+        padding: 10px;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        color: #333;
+      }
+      /* Highlight the selected option */
+      select option:checked {
+        background: #ddd;
+      }
+      /* Hover effect for the options */
+      select option:hover {
+        background: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="post">
+      {% csrf_token %}
+      <input
+        type="text"
+        name="zone"
+        placeholder="Enter the zone where you need to deliver"
+      />
+      <input
+        type="number"
+        name="organization_id"
+        placeholder="Enter the organization-id"
+      />
+      <input
+        type="number"
+        name="total_distance"
+        placeholder="Total Distane from our area"
+      />
+      <select name="item_type">
+        <option value="" disabled selected>Select an item type</option>
+
+        <option value="perishable">Perishable</option>
+        <option value="nonperishable">Non-Perishable</option>
+      </select>
+      <button type="submit">Submit !!</button>
+    </form>
+  </body>
+</html>
